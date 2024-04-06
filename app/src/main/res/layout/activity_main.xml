@@ -68,7 +68,6 @@
         android:hint="Всего литров"
         android:inputType="numberDecimal"
         android:maxLength="5"
-        android:text="350"
         android:textColor="#ECE7E7"
         android:textColorHint="#8F8B8B"
         app:layout_constraintEnd_toEndOf="@+id/textAllFuel"
@@ -88,7 +87,6 @@
         android:hint="Расход"
         android:inputType="numberDecimal"
         android:maxLength="5"
-        android:text="8.8"
         android:textColor="#ECE7E7"
         android:textColorHint="#8F8B8B"
         app:layout_constraintStart_toEndOf="@+id/inputAllFuel"
@@ -107,7 +105,6 @@
         android:hint="Остаток литров"
         android:inputType="numberDecimal"
         android:maxLength="5"
-        android:text="270"
         android:textColor="#ECE7E7"
         android:textColorHint="#8F8B8B"
         app:layout_constraintEnd_toEndOf="parent"
@@ -148,16 +145,21 @@
         app:layout_constraintTop_toTopOf="@+id/enterMileage"
         app:layout_constraintVertical_bias="0.0" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/itemList"
-        android:layout_width="401dp"
-        android:layout_height="561dp"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginVertical="30dp"
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="404dp"
+        android:divider="@color/white"
+        android:dividerHeight="1dp"
+        android:focusableInTouchMode="false"
+        android:isScrollContainer="false"
+        android:layout_height="551dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/enterMileage" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

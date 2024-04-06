@@ -3,6 +3,7 @@ package com.example.waybill
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ListView
 import com.example.waybill.date.getDate
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -17,10 +18,17 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         val day = getDate()
 
-
-        val itemList: RecyclerView = findViewById(R.id.itemList)
+        val listView = findViewById<ListView>(R.id.listView)
         val enterMil = findViewById<EditText>(R.id.enterMileage)
+        val allFuel = findViewById<EditText>(R.id.inputAllFuel)
+        val fuelCons = findViewById<EditText>(R.id.inputFuelCons)
+        val remFuel = findViewById<EditText>(R.id.inputRemFuel)
         val btn = findViewById<Button>(R.id.button)
+
+        btn.setOnClickListener{
+
+            remFuel.setText(CountMil().setInRemText(allFuel,enterMil,fuelCons))
+        }
 
 
 
