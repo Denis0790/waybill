@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ListView
+import android.widget.Toast
 import com.example.waybill.date.getDate
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -26,8 +27,15 @@ class MainActivity : AppCompatActivity() {
         val btn = findViewById<Button>(R.id.button)
 
         btn.setOnClickListener{
+            if (allFuel.editableText.toString() == "" ||
+                enterMil.editableText.toString() == "" ||
+                fuelCons.editableText.toString() == ""){
+                Toast.makeText(this, "Не все поля заполнены!", Toast.LENGTH_SHORT).show()
+            }
+            else{
+                remFuel.setText(CountMil().setInRemText(allFuel,enterMil,fuelCons))
+            }
 
-            remFuel.setText(CountMil().setInRemText(allFuel,enterMil,fuelCons))
         }
 
 

@@ -1,12 +1,13 @@
 package com.example.waybill
 
 import android.widget.EditText
+import android.widget.Toast
 
 class CountMil {
     fun setInRemText(allFuel: EditText,enterMil: EditText, fuelCons: EditText ): String{
-        val res = enterMil.getText().toString().toDouble() *
-                fuelCons.getText().toString().toDouble()/100
-        return (allFuel.getText().toString().toDouble() - res).toString()
+            val res = enterMil.getText().toString().toDouble() *
+                    fuelCons.getText().toString().toDouble()/100
+            return (allFuel.getText().toString().toDouble() - res).toString()
     }
 
     fun consToDay(enterMil: EditText, fuelCons: EditText): String{
