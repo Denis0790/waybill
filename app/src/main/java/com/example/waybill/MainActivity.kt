@@ -7,9 +7,6 @@ import android.widget.ListView
 import android.widget.Toast
 import com.example.waybill.date.getDate
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import java.util.logging.Logger.global
 
 
 class MainActivity : AppCompatActivity() {
@@ -23,7 +20,6 @@ class MainActivity : AppCompatActivity() {
         val enterMil = findViewById<EditText>(R.id.enterMileage)
         val allFuel = findViewById<EditText>(R.id.inputAllFuel)
         val fuelCons = findViewById<EditText>(R.id.inputFuelCons)
-        val remFuel = findViewById<EditText>(R.id.inputRemFuel)
         val btn = findViewById<Button>(R.id.button)
 
         btn.setOnClickListener{
@@ -33,7 +29,7 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(this, "Не все поля заполнены!", Toast.LENGTH_SHORT).show()
             }
             else{
-                remFuel.setText(CountMil().setInRemText(allFuel,enterMil,fuelCons))
+                allFuel.setText(CountMil().setInRemText(allFuel,enterMil,fuelCons))
             }
 
         }
