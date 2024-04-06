@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FCC88523"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/textAllFuel"
+        android:layout_width="130dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="16dp"
+        android:background="#6750A3"
+        android:fontFamily="@font/montserrat_medium"
+        android:gravity="center"
+        android:padding="5dp"
+        android:text="ВСЕГО ТОПЛИВА"
+        android:textColor="#ECE7E7"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textFuelConsumption"
+        android:layout_width="80dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="10dp"
+        android:background="#6750A3"
+        android:fontFamily="@font/montserrat_medium"
+        android:gravity="center"
+        android:padding="5dp"
+        android:text="РАСХОД"
+        android:textColor="#ECE7E7"
+        android:textSize="12sp"
+        app:layout_constraintStart_toEndOf="@+id/textAllFuel"
+        app:layout_constraintTop_toTopOf="@+id/textAllFuel" />
+
+    <TextView
+        android:id="@+id/textRemainderFuel"
+        android:layout_width="140dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:background="#6750A3"
+        android:fontFamily="@font/montserrat_medium"
+        android:gravity="center"
+        android:padding="5dp"
+        android:text="ОСТАТОК ТОПЛИВА"
+        android:textColor="#ECE7E7"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/textFuelConsumption"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textFuelConsumption"
+        app:layout_constraintTop_toTopOf="@+id/textFuelConsumption" />
+
+    <EditText
+        android:id="@+id/inputAllFuel"
+        android:layout_width="130dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="#6750A3"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="Всего литров"
+        android:inputType="numberDecimal"
+        android:maxLength="5"
+        android:text="350"
+        android:textColor="#ECE7E7"
+        android:textColorHint="#8F8B8B"
+        app:layout_constraintEnd_toEndOf="@+id/textAllFuel"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/textAllFuel"
+        app:layout_constraintTop_toBottomOf="@+id/textAllFuel" />
+
+    <EditText
+        android:id="@+id/inputFuelCons"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="#6750A3"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="Расход"
+        android:inputType="numberDecimal"
+        android:maxLength="5"
+        android:text="8.8"
+        android:textColor="#ECE7E7"
+        android:textColorHint="#8F8B8B"
+        app:layout_constraintStart_toEndOf="@+id/inputAllFuel"
+        app:layout_constraintTop_toBottomOf="@+id/textFuelConsumption" />
+
+    <EditText
+        android:id="@+id/inputRemFuel"
+        android:layout_width="140dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:backgroundTint="#6750A3"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="Остаток литров"
+        android:inputType="numberDecimal"
+        android:maxLength="5"
+        android:text="270"
+        android:textColor="#ECE7E7"
+        android:textColorHint="#8F8B8B"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.363"
+        app:layout_constraintStart_toEndOf="@+id/inputFuelCons"
+        app:layout_constraintTop_toBottomOf="@+id/textRemainderFuel" />
+
+    <EditText
+        android:id="@+id/enterMileage"
+        android:layout_width="170dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="24dp"
+        android:backgroundTint="#6750A3"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="Введите пробег"
+        android:inputType="numberDecimal"
+        android:maxLength="5"
+        android:textColor="#ECE7E7"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/inputAllFuel" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="160dp"
+        android:layout_height="40dp"
+        android:backgroundTint="#6750A3"
+        android:fontFamily="@font/montserrat_medium"
+        android:gravity="center"
+        android:text="Внести"
+        android:textColor="#ECE7E7"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/enterMileage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.676"
+        app:layout_constraintStart_toEndOf="@+id/enterMileage"
+        app:layout_constraintTop_toTopOf="@+id/enterMileage"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/itemList"
+        android:layout_width="401dp"
+        android:layout_height="561dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginVertical="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/enterMileage" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
