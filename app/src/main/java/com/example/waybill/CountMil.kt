@@ -4,14 +4,14 @@ import android.widget.EditText
 import android.widget.Toast
 
 class CountMil {
-    fun setInRemText(allFuel: EditText,enterMil: EditText, fuelCons: EditText ): String{
-            val res = enterMil.getText().toString().toDouble() *
-                    fuelCons.getText().toString().toDouble()/100
-            return (allFuel.getText().toString().toDouble() - res).toString()
+    fun setInRemText(allFuel: String,enterMil: String, fuelCons: String ): String{
+            val res = enterMil.toDouble() *
+                    fuelCons.toDouble()/100
+            return (allFuel.toDouble() - res).toString()
     }
 
-    fun consToDay(enterMil: EditText, fuelCons: EditText): String{
-        return (enterMil.getText().toString().toDouble() *
-                fuelCons.getText().toString().toDouble()/100).toString()
+    fun consToDay(enterMil: String, fuelCons: String): String{
+        return (enterMil.toDouble() *
+                fuelCons.toDouble()/100).toString()
     }
 }
