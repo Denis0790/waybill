@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <shape>
+        <item android:state_pressed="true"/>
+        <color android:color="#ECE7E7"/>
         <size android:height="1dp" />
         <padding android:left="4dp" android:right="4dp"/>
-        <solid android:color="#90909090" />
     </shape>
 </selector>
