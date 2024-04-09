@@ -8,12 +8,15 @@ import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import com.example.waybill.GetDataForArr
 
+
 class MyDatabaseHelper(context: Context, factory: SQLiteDatabase.CursorFactory?) :
     SQLiteOpenHelper(context, "MyDatabase.db", factory, 1) {
 
+    private val dataList = ArrayList<String>()
+
     override fun onCreate(db: SQLiteDatabase?) {
         val query = "CREATE TABLE IF NOT EXISTS my_table (id INTEGER PRIMARY KEY, allFuel TEXT," +
-                " fuelCons TEXT, mileage TEXT, dayFuelCons TEXT, date TEXT)"
+                " fuelCons TEXT, mileage TEXT, date TEXT)"
         db!!.execSQL(query)
     }
 
@@ -27,7 +30,6 @@ class MyDatabaseHelper(context: Context, factory: SQLiteDatabase.CursorFactory?)
             put("allFuel", getDataForArr.allFuel)
             put("fuelCons", getDataForArr.fuelCons)
             put("mileage", getDataForArr.mileage)
-            put("dayFuelCons", getDataForArr.dayFuelCons)
             put("date", getDataForArr.day)
         }
 
@@ -38,18 +40,15 @@ class MyDatabaseHelper(context: Context, factory: SQLiteDatabase.CursorFactory?)
 
     @SuppressLint("Range")
     fun getAllData(): ArrayList<String> {
-        val dataList = ArrayList<String>()
+        dataList.clear()
         val db = this.readableDatabase
         val cursor: Cursor? = db.rawQuery("SELECT * FROM my_table", null)
         cursor?.use {
             if (it.moveToFirst()) {
                 do {
-                    val allFuel = it.getString(it.getColumnIndex("allFuel"))
-                    val fuelCons = it.getString(it.getColumnIndex("fuelCons"))
                     val mileage = it.getString(it.getColumnIndex("mileage"))
-                    val dayFuelCons = it.getString(it.getColumnIndex("dayFuelCons"))
                     val date = it.getString(it.getColumnIndex("date"))
-                    dataList.add("All fuel: $allFuel, Fuel consumption: $fuelCons, Mileage: $mileage, Day fuel consumption: $dayFuelCons, Date: $date")
+                    dataList.add("Пробег: $mileage км  -  $date")
                 } while (it.moveToNext())
             }
         }
@@ -58,5 +57,13 @@ class MyDatabaseHelper(context: Context, factory: SQLiteDatabase.CursorFactory?)
         return dataList
     }
 
+    fun deleteItem(mileage: String) {
+        val db = this.writableDatabase
+        db.delete("my_table", "mileage=?", arrayOf(mileage))
+        db.close()
+
+        dataList.clear()
+        dataList.addAll(getAllData())
+    }
 }
 
